@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar  color="teal">
+    <ion-title>
+      {{store_name}}
+      <div style="float: right">
+        <button ion-button clear  color="dark" (click)="logout()">LOGOUT</button>
+        <button ion-button clear color="dark" (click)="viewCart()">VIEW CART</button>
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <h2 style="float: right; color: crimson">
+    Items Offered
+  </h2>
+  <ion-card *ngFor = "let item of storeDetails; let i = index">
+    <ion-card-header>
+     <h1>{{item.item_name}}</h1>
+    </ion-card-header>
+    <ion-card-content>
+         <div (click)="getOtherStoreCosts(i)">
+          <h4>Compare cost with other stores</h4>
+         </div>
+          <div style="float: right">
+            <h1 style="color: crimson">Rs. {{item.cost}}</h1>
+            <button ion-button color="crimson" (click)="buyItem(i)" > BUY </button>
+          </div>
+
+        <div *ngIf="item.compare">
+          <ion-list>
+            <ion-item *ngFor=" let store of item.compared_items">
+              <span style="margin-left: 20%">{{store.store_name}}  Rs. {{store.item_cost}}</span>
+            </ion-item>
+          </ion-list>
+        </div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

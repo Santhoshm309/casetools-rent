@@ -1,0 +1,14 @@
+<ion-content padding>
+  <ion-item>
+
+    <ion-select [(ngModel)]="item_id" full>
+      <ion-option *ngFor="let item of items" [value]="item.id"   >{{item.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cost</ion-label>
+    <ion-input type="text" [(ngModel)]="cost"></ion-input>
+  </ion-item>
+  <button padding=""  (click)="addItem()"  ion-button color="crimson" full> ADD ITEM TO STORE</button>
+</ion-content>

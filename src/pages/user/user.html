@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" color="teal">
+    <ion-title>
+      USER
+      <div style="float: right">
+        <button ion-button clear  color="dark" (click)="logout()">LOGOUT</button>
+        <button ion-button clear color="dark" (click)="viewCart()">VIEW CART</button>
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list inset>
+    <button ion-item *ngFor="let store of store_list; let i = index" (click)="storeDetails(i)">
+      {{store.name}}
+      <div style="float: right">
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>
